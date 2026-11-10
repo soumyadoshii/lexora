@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lexora – Regulatory Intelligence (Demo)</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mute:#5b6573;--line:#dfe3ea;--acc:#0f5c4d;--accbg:#e3f3ef;--warn:#8a5a00;--warnbg:#fff4d9;--add:#e6f6ea;--rem:#fde8e8;--mod:#fff4d9}
+@media(prefers-color-scheme:dark){:root{--bg:#10141a;--card:#181d25;--ink:#e8ecf2;--mute:#9aa6b6;--line:#2a313c;--acc:#5fd3b8;--accbg:#173a33;--warn:#f0c15a;--warnbg:#3a2f12;--add:#16341f;--rem:#3d1b1b;--mod:#3a2f12}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:20px 24px;border-bottom:1px solid var(--line);background:var(--card)}h1{margin:0;font-size:20px}h1 span{color:var(--acc)}header p{margin:2px 0 0;color:var(--mute);font-size:13px}
+main{max-width:860px;margin:0 auto;padding:20px}nav{display:flex;gap:8px;margin-bottom:16px}
+nav button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:8px;cursor:pointer;font:inherit}nav button.on{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap}input,select{flex:1;min-width:140px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.go{background:var(--acc);color:var(--bg);border:0;border-radius:8px;padding:10px 18px;cursor:pointer;font:inherit;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chips button{border:1px solid var(--line);background:transparent;color:var(--mute);border-radius:99px;padding:4px 10px;cursor:pointer;font-size:12px}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--accbg);color:var(--acc);font-weight:600}.badge.w{background:var(--warnbg);color:var(--warn)}
+.cite{border-left:3px solid var(--acc);padding:6px 12px;margin:8px 0;color:var(--mute);font-size:13px}.cite b{color:var(--ink)}
+.steps{font-size:12px;color:var(--mute);margin:8px 0 0;padding-left:18px}
+.d{padding:8px 12px;border-radius:8px;margin:6px 0;font-size:14px}.d.a{background:var(--add)}.d.r{background:var(--rem)}.d.m{background:var(--mod)}small{color:var(--mute)}
+[hidden]{display:none!important}
+</style></head><body>
+<header><h1><span>Lexora</span> · Agentic Regulatory Intelligence</h1><p>Demo build · runs on illustrative sample circulars, not real RBI/SEBI text</p></header>
+<main>
+<nav><button id="t1" class="on">Ask</button><button id="t2">Compare</button><button id="t3">Corpus</button></nav>
+<section id="p1"><div class="card"><div class="row"><input id="q" placeholder="Ask about a circular…"><select id="reg"><option value="">All regulators</option><option>RBI</option><option>SEBI</option></select><button class="go" id="ask">Ask</button></div>
+<div class="chips" id="chips"></div></div><div id="out"></div></section>
+<section id="p2" hidden><div class="card"><div class="row"><select id="da"></select><select id="db"></select><button class="go" id="cmp">Compare</button></div></div><div id="cout"></div></section>
+<section id="p3" hidden><div id="docs"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const api=(p,b)=>fetch('/api/'+p,b?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)}:{}).then(r=>r.json());
+const tabs=['1','2','3'];tabs.forEach(n=>$('t'+n).onclick=()=>tabs.forEach(m=>{$('t'+m).classList.toggle('on',m==n);$('p'+m).hidden=m!=n}));
+['What is the KYC updation frequency for high risk customers?','Within how many hours must a cyber incident be reported?','What is the cooling-off period for digital loans?','What is the capital of France?'].forEach(q=>{const b=document.createElement('button');b.textContent=q;b.onclick=()=>{$('q').value=q;ask()};$('chips').appendChild(b)});
+async function ask(){const q=$('q').value.trim();if(!q)return;$('out').innerHTML='<div class="card">Thinking…</div>';
+const r=await api('ask',{query:q,regulator:$('reg').value||null});
+let h='<div class="card">';
+if(r.abstained)h+=`<span class="badge w">Abstained</span><p>${esc(r.message)}</p>`;
+else{let a=esc(r.answer).replace(/\[(\d+)\]/g,'<sup><b>[$1]</b></sup>');h+=`<span class="badge">Grounded answer · ${r.validation.filter(v=>v.valid).length}/${r.validation.length} citations verified</span><p>${a}</p>`;
+r.citations.forEach(c=>h+=`<div class="cite"><b>[${c.n}] ${esc(c.doc_id)}</b> · ${esc(c.title)} · para ${c.para}<br>${esc(c.text)}</div>`)}
+h+='<ul class="steps">'+r.steps.map(s=>`<li>${esc(s)}</li>`).join('')+'</ul></div>';$('out').innerHTML=h}
+$('ask').onclick=ask;$('q').onkeydown=e=>{if(e.key==='Enter')ask()};
+$('cmp').onclick=async()=>{const r=await api('compare',{doc_a:$('da').value,doc_b:$('db').value});
+let h=`<div class="card"><b>${esc(r.a.id)}</b> → <b>${esc(r.b.id)}</b>`;
+r.modified.forEach(m=>h+=`<div class="d m"><span class="badge w">Modified</span><br><small>Before:</small> ${esc(m.from)}<br><small>After:</small> ${esc(m.to)}</div>`);
+r.added.forEach(s=>h+=`<div class="d a"><span class="badge">Added</span><br>${esc(s)}</div>`);
+r.removed.forEach(s=>h+=`<div class="d r"><span class="badge w">Removed</span><br>${esc(s)}</div>`);
+h+=`<p><small>${r.unchanged.length} sentence(s) unchanged.</small></p></div>`;$('cout').innerHTML=h};
+api('documents').then(ds=>{const o=ds.map(d=>`<option value="${d.id}">${d.id} – ${esc(d.title)}</option>`).join('');$('da').innerHTML=o;$('db').innerHTML=o;
+$('da').value='DEMO-RBI-004';$('db').value='DEMO-RBI-004A';
+$('docs').innerHTML=ds.map(d=>`<div class="card"><span class="badge">${d.regulator}</span> <b>${d.id}</b> · ${esc(d.title)} <small>${d.date}</small>${d.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>`).join('')});
+</script></body></html>

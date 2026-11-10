@@ -1,0 +1,110 @@
+[
+ {
+  "query": "What is the KYC updation frequency for high risk customers?",
+  "expected": "DEMO-RBI-001"
+ },
+ {
+  "query": "How often must medium risk customers update KYC?",
+  "expected": "DEMO-RBI-001"
+ },
+ {
+  "query": "Is physical presence needed for KYC self-declaration?",
+  "expected": "DEMO-RBI-001"
+ },
+ {
+  "query": "What is the cooling-off period for digital loans?",
+  "expected": "DEMO-RBI-002"
+ },
+ {
+  "query": "Must lenders give a Key Fact Statement before the loan agreement?",
+  "expected": "DEMO-RBI-002"
+ },
+ {
+  "query": "Can loans be disbursed through third party pass-through accounts?",
+  "expected": "DEMO-RBI-002"
+ },
+ {
+  "query": "Within how many days must a complaint be acknowledged?",
+  "expected": "DEMO-RBI-003"
+ },
+ {
+  "query": "When can a customer escalate a complaint to the Ombudsman?",
+  "expected": "DEMO-RBI-003"
+ },
+ {
+  "query": "What is the deadline to report fraud to the supervisory authority?",
+  "expected": "DEMO-RBI-004A"
+ },
+ {
+  "query": "Is an early warning signals framework required for fraud?",
+  "expected": "DEMO-RBI-004A"
+ },
+ {
+  "query": "What should an outsourcing agreement include regarding audit?",
+  "expected": "DEMO-RBI-005"
+ },
+ {
+  "query": "Do entities need an exit strategy for outsourcing?",
+  "expected": "DEMO-RBI-005"
+ },
+ {
+  "query": "Where must asset management companies disclose total expense ratio?",
+  "expected": "DEMO-SEBI-001"
+ },
+ {
+  "query": "How much notice is required before a change in expense ratio?",
+  "expected": "DEMO-SEBI-001"
+ },
+ {
+  "query": "When does the trading window close for designated persons?",
+  "expected": "DEMO-SEBI-002"
+ },
+ {
+  "query": "Is pre-clearance needed for designated persons to trade?",
+  "expected": "DEMO-SEBI-002"
+ },
+ {
+  "query": "Within how many hours must a cyber incident be reported?",
+  "expected": "DEMO-SEBI-003"
+ },
+ {
+  "query": "How often is a cyber audit required?",
+  "expected": "DEMO-SEBI-003"
+ },
+ {
+  "query": "How many days to resolve a SCORES investor complaint?",
+  "expected": "DEMO-SEBI-004"
+ },
+ {
+  "query": "Can brokers use client funds for proprietary trading?",
+  "expected": "DEMO-SEBI-005"
+ },
+ {
+  "query": "How often must brokers reconcile client fund balances?",
+  "expected": "DEMO-SEBI-005"
+ },
+ {
+  "query": "What is the capital of France?",
+  "expected": null
+ },
+ {
+  "query": "Give me a biryani recipe",
+  "expected": null
+ },
+ {
+  "query": "Who won the cricket world cup?",
+  "expected": null
+ },
+ {
+  "query": "What is the penalty for cryptocurrency mining?",
+  "expected": null
+ },
+ {
+  "query": "How do I change my phone wallpaper?",
+  "expected": null
+ },
+ {
+  "query": "What are the rules on drone delivery licensing?",
+  "expected": null
+ }
+]

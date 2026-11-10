@@ -1,0 +1,37 @@
+[
+{"id":"DEMO-RBI-001","regulator":"RBI","title":"KYC Periodic Updation","date":"2025-01-10","paragraphs":[
+"Regulated entities shall carry out periodic updation of KYC for all customers. Updation shall be done at least once every two years for high risk customers, once every eight years for medium risk customers, and once every ten years for low risk customers.",
+"Where there is no change in customer information, a self-declaration through registered email or mobile number is sufficient. Entities shall not require physical presence of the customer for such confirmation."]},
+{"id":"DEMO-RBI-002","regulator":"RBI","title":"Digital Lending Disclosures","date":"2025-02-03","paragraphs":[
+"Lenders shall provide a Key Fact Statement to the borrower before the loan agreement is executed. The statement shall disclose the annual percentage rate, all fees and charges, and the recovery mechanism.",
+"Borrowers shall be given a cooling-off period of at least three days to exit a digital loan by repaying the principal and proportionate interest, without any penalty.",
+"All loan disbursals and repayments shall be made directly between the bank accounts of the borrower and the regulated entity, without pass-through accounts of any third party."]},
+{"id":"DEMO-RBI-003","regulator":"RBI","title":"Customer Grievance Redressal","date":"2024-11-20","paragraphs":[
+"Every regulated entity shall acknowledge a customer complaint within three working days and display the details of its grievance officer prominently on its website.",
+"Complaints shall be resolved within thirty days of receipt. If the complaint is not resolved within thirty days or the customer is dissatisfied with the response, the customer may escalate it to the Ombudsman."]},
+{"id":"DEMO-RBI-004","regulator":"RBI","title":"Fraud Reporting Framework (Original)","date":"2024-06-15","paragraphs":[
+"Regulated entities shall report every detected fraud to the supervisory authority within twenty-one days of detection.",
+"The board shall review fraud cases above a threshold of one crore rupees every quarter. A designated officer shall maintain a register of all reported frauds."]},
+{"id":"DEMO-RBI-004A","regulator":"RBI","title":"Fraud Reporting Framework (Amended)","date":"2025-04-01","paragraphs":[
+"Regulated entities shall report every detected fraud to the supervisory authority within fourteen days of detection.",
+"The board shall review fraud cases above a threshold of fifty lakh rupees every quarter. A designated officer shall maintain a register of all reported frauds.",
+"Entities shall put in place an early warning signals framework to identify accounts showing indicators of potential fraud."]},
+{"id":"DEMO-RBI-005","regulator":"RBI","title":"Outsourcing of IT Services","date":"2025-03-12","paragraphs":[
+"Regulated entities shall adopt a board approved outsourcing policy covering selection of service providers, risk assessment and ongoing monitoring.",
+"Outsourcing agreements shall include a right to audit clause permitting the entity and the regulator to inspect the service provider. Entities shall maintain an exit strategy and assess concentration risk arising from dependence on a single provider."]},
+{"id":"DEMO-SEBI-001","regulator":"SEBI","title":"Mutual Fund Expense Disclosure","date":"2025-02-18","paragraphs":[
+"Asset management companies shall disclose the total expense ratio of every scheme on their website on a daily basis, separately for direct and regular plans.",
+"Any change in the base total expense ratio shall be communicated to unitholders through notice at least three working days before the change takes effect."]},
+{"id":"DEMO-SEBI-002","regulator":"SEBI","title":"Trading Window and Insider Trading","date":"2024-12-05","paragraphs":[
+"The trading window shall be closed for designated persons from the end of every quarter until forty-eight hours after the declaration of financial results.",
+"Designated persons shall obtain pre-clearance from the compliance officer before trading in securities of the company above the specified threshold value."]},
+{"id":"DEMO-SEBI-003","regulator":"SEBI","title":"Cybersecurity and Cyber Resilience","date":"2025-05-09","paragraphs":[
+"Market intermediaries shall report any cyber security incident to the regulator within six hours of detection and submit a root cause analysis within thirty days.",
+"Entities shall operate a security operations centre and shall get a comprehensive cyber audit conducted by an independent auditor at least once every year."]},
+{"id":"DEMO-SEBI-004","regulator":"SEBI","title":"Investor Complaint Redressal on SCORES","date":"2024-10-22","paragraphs":[
+"Listed companies and intermediaries shall resolve an investor complaint received on the SCORES platform within twenty-one days.",
+"Where a complaint remains pending beyond twenty-one days, the platform shall escalate it to a designated senior officer of the regulator and reminders shall be issued to the entity."]},
+{"id":"DEMO-SEBI-005","regulator":"SEBI","title":"Stock Broker Client Fund Segregation","date":"2025-01-28","paragraphs":[
+"Stock brokers shall keep client funds in a separate bank account and shall not use client funds for proprietary trading or for the obligations of another client.",
+"Brokers shall reconcile client fund balances on a daily basis and report any shortfall to the exchange immediately."]}
+]
